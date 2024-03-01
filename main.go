@@ -6,6 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/pfirulo2022/fiber-crud-api/database"
+	"github.com/pfirulo2022/fiber-crud-api/router"
 )
 
 func main() {
@@ -18,6 +19,8 @@ func main() {
 		AllowCredentials: true,
 		AllowHeaders:     "Origin, Content-Type, Accept",
 	}))
+
+	router.SetupRoutes(app)
 
 	log.Fatal(app.Listen(":8000"))
 }
